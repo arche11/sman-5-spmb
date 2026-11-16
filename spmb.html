@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<head>
+    <title>SPMB SMA Negeri 5 Bogor</title>
+</head>
+
+<body>
+
+<center>
+    <h1>SPMB SMA Negeri 5 Bogor</h1>
+    <link rel="stylesheet" href="spmb.css">
+
+    <img src="logosman5.png" height="145" width="150">
+
+    <br><br>
+
+    <a href="main_menu.html">| Kembali ke Beranda |</a>
+    <hr>
+
+    <section id="spmb">
+
+        <h2>Formulir Pendaftaran</h2>
+
+        <form id="formPendaftaran">
+            <table border="1" cellpadding="15">
+                <tr>
+                    <td colspan="2" align="center">
+                        <b>Biodata Diri</b>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Nama Lengkap</td>
+                    <td><input type="text" id="nama"></td>
+                </tr>
+
+                <tr>
+                    <td>NISN</td>
+                    <td><input type="number" id="nisn" min="0"></td>
+                </tr>
+
+                <tr>
+                    <td>Tempat, Tanggal Lahir</td>
+                    <td><input type="text" id="tempatTanggalLahir"></td>
+                </tr>
+
+                <tr>
+                    <td>Jenis Kelamin</td>
+                    <td>
+                        <input type="radio" name="jk" id="laki-laki" value="Laki-laki">
+                        <label for="laki-laki">Laki-laki</label>
+                        <input type="radio" name="jk" id="perempuan" value="Perempuan">
+                        <label for="perempuan">Perempuan</label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Asal Sekolah</td>
+                    <td><input type="text" id="asalSekolah"></td>
+                </tr>
+
+                <tr>
+                    <td>Alamat</td>
+                    <td>
+                        <textarea rows="4" cols="30" id="alamat"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>No. HP</td>
+                    <td><input type="number" id="noHp" min="0"></td>
+                </tr>
+
+                <tr>
+                    <td>Email</td>
+                    <td><input type="email" id="email"></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" align="center">
+                        <b>Biodata Orang Tua</b>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Nama Ayah</td>
+                    <td><input type="text" id="namaAyah"></td>
+                </tr>
+
+                <tr>
+                    <td>Pekerjaan Ayah</td>
+                    <td><input type="text" id="pekerjaanAyah"></td>
+                </tr>
+
+                <tr>
+                    <td>No. HP Ayah</td>
+                    <td><input type="number" id="noHpAyah" min="0"></td>
+                </tr>
+
+                <tr>
+                    <td>Nama Ibu</td>
+                    <td><input type="text" id="namaIbu"></td>
+                </tr>
+
+                <tr>
+                    <td>Pekerjaan Ibu</td>
+                    <td><input type="text" id="pekerjaanIbu"></td>
+                </tr>
+
+                <tr>
+                    <td>No. HP Ibu</td>
+                    <td><input type="number" id="noHpIbu" min="0"></td>
+                </tr>
+
+                <tr>
+                    <td>Alamat Orang Tua</td>
+                    <td>
+                        <textarea rows="4" cols="30" id="alamatOrangTua"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" value="Kirim">
+                        <input type="reset" value="Reset">
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+
+        <p id="hasilForm"></p>
+        <br>
+
+    </section>
+
+    <hr>
+
+    <h1>Kontak</h1>
+
+    <p>
+        Untuk informasi lebih lanjut, silakan hubungi sekolah.
+    </p>
+
+    <h4>Email: sman5@sman5kotabogor.sch.id</h4>
+    <h4>Telepon: 0251-8325688</h4>
+
+    <hr>
+
+    <footer>
+        <p>&copy; <span id="tahun"></span> SMA Negeri 5 Bogor. All rights reserved.</p>
+    </footer>
+
+<script>
+    document
+    .getElementById("formPendaftaran")
+    .addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const nama = document.getElementById("nama").value;
+        const nisn = document.getElementById("nisn").value;
+        const tempatTanggalLahir = document.getElementById("tempatTanggalLahir").value;
+        const jenisKelamin = document.querySelector('input[name="jk"]:checked')?.value;
+        const asalSekolah = document.getElementById("asalSekolah").value;
+        const alamat = document.getElementById("alamat").value;
+        const noHp = document.getElementById("noHp").value;
+        const email = document.getElementById("email").value;
+
+        if (!nama || !nisn || !tempatTanggalLahir || !jenisKelamin || !asalSekolah || !alamat || !noHp || !email) {
+            document.getElementById("hasilForm").textContent = "Harap lengkapi semua field sebelum mengirim formulir.";
+        } else {
+            document.getElementById("hasilForm").textContent = "Formulir berhasil dikirim! Terima kasih atas pendaftaran Anda.";
+        }
+       document.getElementById("formPendaftaran").reset();
+    });
+
+    const tahunSekarang = new Date().getFullYear();
+    document.getElementById("tahun").textContent = tahunSekarang;
+</script>
+
+
+</body>
+</html>
